@@ -1,0 +1,21 @@
+extends ../layout
+
+block content
+  .container
+    .row
+      .col-md-7
+        embed(src="#{movie.flash}", allowFullScreen="true", quality="high", width="700", height="450", align="middle", type="application/x-shockwave-flash")
+      .col-md-5
+        dl.dl-horizontal
+          dt 电影名称
+          dd= movie.title
+          dt 导演
+          dd= movie.doctor
+          dt 国家
+          dd= movie.country
+          dt 语言
+          dd= movie.language
+          dt 上映年份
+          dd= movie.year
+          dt 简介
+          dd= movie.summary
