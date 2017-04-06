@@ -22,7 +22,7 @@ var movieSchema = new mongoose.Schema({
     }
 });
 
-// 表示每次存储数据之前都先调用这个方法
+// movieSchema.pre 表示每次存储数据之前都先调用这个方法
 movieSchema.pre('save', function (next) {
     if (this.isNew) {
         this.meta.createAt = this.meta.updateAt = Date.now();
@@ -32,6 +32,7 @@ movieSchema.pre('save', function (next) {
     next();
 });
 
+// movieSchema 模式的静态方法
 movieSchema.statics = {
     fetch: function (cb) {
         return this
@@ -46,5 +47,6 @@ movieSchema.statics = {
     }
 }
 
-module.exports = movieSchema; // 导出movieSchema模块
+// 导出movieSchema模式
+module.exports = movieSchema;
 
